@@ -8,9 +8,11 @@ class Controller
     {
         $twig = new \Twig\Environment(
             new \Twig\Loader\FilesystemLoader('../app/view/')
+           
         );
 
         $twig->addGlobal('BASE', BASE);
+        $twig->addGlobal('session', $_SESSION);
         echo $twig->render($view . '.twig.php', $params);
     }
 

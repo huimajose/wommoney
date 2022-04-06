@@ -65,6 +65,10 @@ class ProdutoController extends Controller
         redirect(BASE . 'editar-produto/' . $result);
     }
 
+
+
+    
+
     /**
      * Realiza a busca na base de dados e exibe na página de resultados
      *
@@ -77,6 +81,11 @@ class ProdutoController extends Controller
         $this->load('produto/pesquisa', [
             'termo' => $param
         ]);
+    }
+
+    public function editar($result)
+    {
+        $this->load('produto/editar/');
     }
 
     /**

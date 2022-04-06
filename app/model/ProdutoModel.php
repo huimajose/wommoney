@@ -31,7 +31,7 @@ class ProdutoModel
      */
     public function insert(object $params)
     {
-        $sql = 'INSERT INTO produto (nome, imagem, descricao) VALUES (:nome, :imagem, :descricao)';
+        $sql = 'INSERT INTO product (model, image, isbn) VALUES (:nome, :imagem, :descricao)';
 
         $params = [
             ':nome'      => $params->nome,
@@ -53,13 +53,13 @@ class ProdutoModel
      */
     public function update(object $params)
     {
-        $sql = 'UPDATE produto SET nome = :nome, imagem = :imagem, descricao = :descricao WHERE id = :id';
+        $sql = 'UPDATE product SET model = :nome, image = :imagem, quantity = :stock, price = :pvp WHERE product_id = :id';
 
         $params = [
             ':id'        => $params->id,
-            ':nome'      => $params->nome,
+            ':model'      => $params->model,
             ':imagem'    => $params->imagem,
-            ':descricao' => $params->descricao
+            ':quantity' => $params->stock
         ];
 
         return $this->pdo->executeNonQuery($sql, $params);
@@ -73,7 +73,7 @@ class ProdutoModel
     public function getAll()
     {
         //Excrevemos a consulta SQL e atribuimos a váriavel $sql
-        $sql = 'SELECT id, nome, imagem, descricao FROM produto ORDER BY nome ASC';
+        $sql = 'SELECT product_id, model, image, quantity FROM product ORDER BY model ASC';
 
         //Executamos a consulta chamando o método da modelo. Atribuimos o resultado a variável $dr
         $dt = $this->pdo->executeQuery($sql);

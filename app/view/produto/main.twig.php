@@ -10,6 +10,11 @@
 
     <hr>
 
-    <p>atis sunt consequuntur tempore accusantium dolor similique. Reprehenderit fuga, eos maiores quaerat ex enim magnam neque suscipit. Eum!</p>
+    <p>lista de produtos!</p>
+
+    {% for produ in listaProduto %}
+   
+    <p> {{ produ.model }} </p>
+    {% endfor %}
 </div>
 {% endblock %}

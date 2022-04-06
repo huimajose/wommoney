@@ -17,7 +17,7 @@
 
         <div class="mt-3">
             <label for="txtImagem">Imagem</label>
-            <input type="text" id="txtImagem" name="txtImagem" class="form-control" placeholder="URL da imagem">
+            <input type="file" id="txtImagem" name="txtImagem" class="form-control" placeholder="URL da imagem">
         </div>
 
         <div class="mt-3">
