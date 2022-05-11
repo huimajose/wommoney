@@ -13,9 +13,9 @@
     <link rel="manifest" href="manifest.json" />
 
     <!-- Favicons -->
-    <link rel="apple-touch-icon" href="{{BASE}}assets/img/favicon180.png" sizes="180x180">
-    <link rel="icon" href="{{BASE}}assets/img/favicon32.png" sizes="32x32" type="image/png">
-    <link rel="icon" href="{{BASE}}assets/img/favicon16.png" sizes="16x16" type="image/png">
+    <link rel="apple-touch-icon" href="{{BASE}}assets/img/AAA.jpg" sizes="180x180">
+    <link rel="icon" href="{{BASE}}assets/img/AAA.jpg" sizes="32x32" type="image/png">
+    <link rel="icon" href="{{BASE}}assets/img/AAA.jpg" sizes="16x16" type="image/png">
 
     <!-- Google fonts-->
 

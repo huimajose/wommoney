@@ -7,7 +7,7 @@ use app\core\Controller;
 class PagesController extends Controller
 {
     public function home()
-    {
+    { $this->checkLogged();
         $this->load('home/main');
     }
 

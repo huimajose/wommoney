@@ -1,9 +1,11 @@
 {
-    "name": "satellasoft/mini-framework-php",
+    "name": "WOM Money",
     "authors": [
         {
-            "name": "Gunnar Correa",
-            "email": "gunnercorrea@gmail.com"
+            "nome": "Turma B1 ISPI",
+            "email": "grupo2@gmail.com",
+            "descricao":"Sistema de pagamento online, com funcionalidades simples, geração de contas,associar cartões de crédito a contas e efectuar transferencias e depositos",
+            "versao": "1.0.0"
         }
     ],
     "require": {

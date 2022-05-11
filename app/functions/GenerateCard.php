@@ -20,6 +20,21 @@ class GenerateCard{
         return $num;
     }
 
+    /*
+    função que gera numero de conta ordenados em 9 digitos 0000-0000 digitos aleatorios*/
+    public static function gAccount(){
+
+        $totalRows = 1;
+
+        
+
+        for ($i=0; $i <= $totalRows; $i++) { 
+            $num = rand(1000,1000000000);
+        }
+
+        return $num;
+    }
+
 
     /*
     função que gera Csv de 3 digitos aleatorios*/

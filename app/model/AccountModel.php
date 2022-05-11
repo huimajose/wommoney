@@ -133,10 +133,24 @@ class AccountModel
      */
     public function getById(int $id)
     {
-        $sql = 'SELECT u.idUser,u.username,u.password,u.pnome,u.unome,u.morada,u.identificacao,u.bio,u.telefone,u.email,c.name as pais FROM users as u inner join country as c on u.pais = c.country_id WHERE u.idUser = :idUser';
+        $sql = 'SELECT u.idUser,u.username,u.password,u.pnome,u.unome,u.morada,u.identificacao,u.bio,u.telefone,u.email,c.name as pais,ec.nome as estadoCivil FROM users as u inner join country as c on u.pais = c.country_id left join estadocivil as ec on ec.idEstadoCivil = u.estadoCivil where u.idUser = :idUser';
 
         $param = [
             ':idUser' => $id
+        ];
+
+        $dr = $this->pdo->executeQueryOneRow($sql, $param);
+
+        return $this->collection($dr);
+    }
+
+
+    public function getByUsername(string $username)
+    {
+        $sql = 'SELECT u.idUser,u.username,u.password,u.pnome,u.unome,u.morada,u.identificacao,u.bio,u.telefone,u.email,u.pais FROM users as u WHERE u.username = :username';
+
+        $param = [
+            ':username' => $username
         ];
 
         $dr = $this->pdo->executeQueryOneRow($sql, $param);

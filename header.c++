@@ -1,3 +1,43 @@
-#include <stdio.h>
 
-printf("Ola mundo!");
+
+
+SELECT u.idUser,u.username,u.password,u.pnome,u.unome,u.morada,u.identificacao,u.bio,u.telefone,u.email,c.name as pais,ec.nome as estadoCivil FROM users as u inner join country as c on u.pais = c.country_id inner join estadocivil as ec on ec.idEstadoCivil = u.estadoCivil where u.idUser = 50;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+select ec.nome from estadocivil as ec;

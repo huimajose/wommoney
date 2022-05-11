@@ -21,26 +21,6 @@
 
     <!-- Begin page -->
     <main class="h-100 has-header">
-
-        <!-- Header -->
-        <header class="header position-fixed">
-            <div class="row">
-                <div class="col-auto">
-                    <button class="btn btn-light btn-44 back-btn" onclick="window.location.replace('profile.html');">
-                        <i class="bi bi-arrow-left"></i>
-                    </button>
-                </div>
-                <div class="col align-self-center text-center">
-                    <h5>Configurações</h5>
-                </div>
-                <div class="col-auto">
-                    <a href="notifications.html" target="_self" class="btn btn-light btn-44">
-                        <i class="bi bi-bell"></i>
-                        <span class="count-indicator"></span>
-                    </a>
-                </div>
-            </div>
-        </header>
         <!-- Header ends -->
 
         <!-- main page content -->
@@ -53,7 +33,7 @@
                     <div class="row">
                         <div class="col-auto">
                             <figure class="avatar avatar-60 rounded-10">
-                                <img src="{{BASE}}assets/img/user1.jpg" alt="">
+                               
                             </figure>
                         </div>
                         <div class="col px-0 align-self-center">
@@ -113,6 +93,19 @@
                         <label for="emailphone">Identificação / BI</label>
                     </div>
                 </div>
+
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="form-floating mb-3">
+                        <select class="form-control" id="country" name="pais">
+                       
+                        {% for estado in estadoCivil %}
+                            
+                            <option value="{{estado.idEstadoCivil}}">{{estado.nome}}</option>
+                            {% endfor %}
+                        </select>
+                        <label for="country">Estado Civil</label>
+                    </div>
+                </div>
                 
             </div>
 
@@ -156,24 +149,11 @@
 
             <!-- change password -->
             <div class="row mb-3">
-                <div class="col">
-                    <h6>Alterar Senha</h6>
-                </div>
+                
             </div>
             <div class="row h-100 mb-4">
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="form-floating  mb-3">
-                        <input type="password" class="form-control" value="asdasdasdsd" placeholder="Password"
-                            id="password">
-                        <label for="password">Senha</label>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="form-floating ">
-                        <input type="password" class="form-control" placeholder="Confirm Password" id="confirmpassword">
-                        <label for="confirmpassword">Confirmar senha</label>
-                    </div>
-                </div>
+               
+                
             </div>
 
             

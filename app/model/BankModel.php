@@ -7,7 +7,7 @@ use app\core\Model;
 /**
  * Classe responsável por gerenciar a conexão com a tabela produto.
  */
-class CardModel
+class BankModel
 {
 
     //Instância da classe model
@@ -23,10 +23,10 @@ class CardModel
         $this->pdo = new Model();
     }
 
-    public function getAll()
+    public function getBank()
     {
         //Excrevemos a consulta SQL e atribuimos a váriavel $sql
-        $sql = 'SELECT * FROM wallet';
+        $sql = 'SELECT * FROM bancos';
 
         //Executamos a consulta chamando o método da modelo. Atribuimos o resultado a variável $dr
         $dt = $this->pdo->executeQuery($sql);
@@ -51,7 +51,7 @@ class CardModel
      */
     public function getById(int $id)
     {
-        $sql = 'SELECT w.idWallet,w.numero,w.expira,bn.code as banco,tw.nome as tipo, tw.limite as limite,c.code as moeda, tw.fundo,cont.saldo,cont.numero as conta FROM wallet as w inner join bancos as bn on bn.idBanco = w.banco inner join tipowallet as tw on tw.idTipoWallet = w.tipo inner join currency as c on c.currency_id = w.moeda inner join contas as cont on w.account = cont.idConta WHERE w.owner = :idWallet and w.estado = 1';
+        $sql = 'SELECT w.idWallet,w.numero,w.expira,bn.code as banco,tw.nome as tipo, tw.limite as limite,c.code as moeda, tw.fundo FROM wallet as w inner join bancos as bn on bn.idBanco = w.banco inner join tipowallet as tw on tw.idTipoWallet = w.tipo inner join currency as c on c.currency_id = w.moeda WHERE owner = :idWallet';
 
         $param = [
             ':idWallet' => $id
@@ -72,35 +72,6 @@ class CardModel
         return $listaProduto;
     }
 
-
-
-
-    public function insert(object $params,$owner,$numero,$csv,$pin,$conta)
-    {
-        $sql = 'INSERT INTO wallet (owner,numero,csv,pin,criado,expira,tipo,banco,estado,moeda,account) VALUES (:owner,:numero,:csv,:pin,now(),:expira,:tipo,:banco,:estado,:moeda,:account)';
-
-        $params = [
-            ':owner'=> $owner,
-            ':numero'=> $numero,
-            ':csv' => $csv,
-            ':pin' => $pin,
-            ':tipo'=> $params->tipo,
-            ':expira'=> '2024-04-01',
-            ':banco'=> $params->banco,
-            ':estado'=> 1,
-            ':moeda'=> 4,
-            ':account'=> $conta,
-            
-            
-        ];
-
-        if (!$this->pdo->executeNonQuery($sql, $params))
-            return -1; //Código de erro
-
-        return $this->pdo->getLastID();
-    }
-
-
     /**
      * Converte uma estrutura de array vinda da base de dados em um objeto devidamente tratado
      *
@@ -110,16 +81,10 @@ class CardModel
     private function collection($param)
     {
         return (object)[
-            'idWallet'        => $param['idWallet']        ?? null,
-            'numero'      => $param['numero']      ?? null,
-            'expira'      => $param['expira']      ?? null,
-            'banco'      => $param['banco']      ?? null,
-            'tipo'    => $param['tipo']    ?? null,
-            'limite'    => $param['limite']    ?? null,
-            'moeda'    => $param['moeda']    ?? null,
-            'fundo'    => $param['fundo']    ?? null,
-            'saldo'    => $param['saldo']    ?? null,
-            'conta'    => $param['conta']    ?? null,
+            'idBanco'        => $param['idBanco']        ?? null,
+            'nome'      => $param['nome']      ?? null,
+            'code'      => $param['code']      ?? null,
+            
            
         ];
     }

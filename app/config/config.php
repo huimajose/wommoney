@@ -9,3 +9,4 @@ define('DB_HOST', 'localhost');//Endereço
 define('DB_USER', 'root');
 define('DB_PASS', '');
 define('DB_NAME', 'news');
+define('VERSAO','1.0.0');

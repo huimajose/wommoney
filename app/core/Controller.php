@@ -6,6 +6,7 @@ class Controller
 {
     protected function load(string $view, $params = [])
     {
+       
         $twig = new \Twig\Environment(
             new \Twig\Loader\FilesystemLoader('../app/view/')
            
@@ -26,4 +27,13 @@ class Controller
             'link'      => $link
         ]);
     }
+
+    public function checkLogged(){
+
+        if(!isset($_SESSION['userID'])){
+            header('Location: account/login');
+         
+        }
+    }
 }
+ 
