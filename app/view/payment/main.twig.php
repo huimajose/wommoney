@@ -95,7 +95,7 @@
     <div class="row mb-4">
         <div class="col-12 ">
             <button type="submit" class="btn btn-default btn-lg shadow-sm w-100">
-                Depositar
+                Transferir
             </button>
         </div>
     </div>

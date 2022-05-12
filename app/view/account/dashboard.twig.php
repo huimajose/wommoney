@@ -62,11 +62,14 @@
             <!-- swiper credit cards -->
             <div class="row mb-3">
                 <div class="col-12 px-0">
+               
                     <div class="swiper-container cardswiper">
+                    {% for card in cards %}
                         <div class="swiper-wrapper">
                           
-                        {% for card in cards %}
+                       
                             <div class="swiper-slide">
+                           
                                 <div class="card {{card.fundo}} border-0">
                                     <div class="card-body">
                                         <div class="row mb-3">
@@ -97,6 +100,7 @@
                                         </div>
                                     </div>
                                 </div>
+                              
                             </div>
                             {% endfor %}
                         </div>
